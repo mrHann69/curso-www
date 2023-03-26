@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarea 2</title>
 </head>
+
 <body>
-    <div id="root"></div>
-    <script src="assets/main.js"></script>
+    <div id="login">
+        <h1>LOG IN</h1>
+        <div id="login-controls">
+            <a id="customer" 
+                class="btn-login" 
+                href="assets/components/customer.html" 
+                onclick="setProfile(this)"
+                target="_self">
+                Customer
+            </a>
+            <a id="admin" 
+                class="btn-login" 
+                href="assets/components/admin.html" 
+                onclick="setProfile(this)"
+                target="_self">
+                Admin
+            </a>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="assets/styles/styles.css">
 </body>
+
 </html>
