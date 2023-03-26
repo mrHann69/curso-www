@@ -1,13 +1,12 @@
-
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100vw;
   height: 100vh;
-  background-image: var(--background) ;
+  background-image: var(--background);
   --background: repeating-linear-gradient(45deg, blue, red);
-  --buttons: linear-gradient(to right ,rgba(50,90,25, 0.8), white);
+  --buttons: linear-gradient(to right, rgba(50, 90, 25, 0.8), white);
 }
 
 #login {
@@ -36,19 +35,31 @@ body {
   align-items: center;
   width: 280px;
   height: 200px;
-  background-image: var(--buttons); 
   border: none;
   text-decoration: none;
   cursor: pointer;
-  color: rgb(0, 0, 0);
   font-size: 45px;
+  color: white;
 }
 .btn-login:hover {
+  z-index: 5;
+  position: relative;
   width: 300px;
-  transform: scale(1.2) 2;
-  background-color: white;
+  transform: scale(1.1);
+  background-color: rgba(50, 90, 25, 0.8);
 }
-
+#customer {
+  background-color: blue;
+}
+#customer:hover {
+  box-shadow: -10px 5px 10px;
+}
+#admin {
+  background-color: red;
+}
+#admin:hover {
+  box-shadow: 10px 5px 10px;
+}
 @media screen and (max-width: 600px) {
   #login-controls {
     display: flex;
