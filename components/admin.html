@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration</title>
+    <script type="module" src="../javascript/admin.js"></script>
+</head>
+
+<body>
+    <div id="title">Administration</div>
+
+    <div id="container">
+        
+            <div id="panel">
+                <form id="form">
+                    <label for="inid">product id</label>
+                    <input name="inid" id="inid" type="text" placeholder="producto id"> 
+                    <label for="pname">product name</label>
+                    <input name="pname" id="inid" type="text" placeholder="product name">
+                    <label for="pprice">product price</label>
+                    <input name="pprice" id="pprice" type="text" placeholder="producto price">
+                    <label for="strimg">product img</label>
+                    <input name="strimg" id="strimg" type="text" placeholder="producto img"> 
+                    <label for="numinvt">product num inventory</label>
+                    <input name="numinvt"id="numinvt" type="text" placeholder="producto num inventory">
+                    <button type="submit" id="product_button">Create Product</button>
+                </form>
+            </div>
+        
+            <div id="content">
+                <div id="product_list">
+                    
+                </div>
+            </div>
+
+            
+        <input type="file" name="files" id="inputfiles" accept=".json, .txt" onchange="readFile(this)">
+    </div>
+
+    <div id="footer">
+        <p> Matheo F. @ github → mrHann69</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+const productDatabase = {}  
+function readFile(){
+    
+}
