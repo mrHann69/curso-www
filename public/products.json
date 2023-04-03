@@ -1,0 +1,18 @@
+{
+    "data": [
+        {
+            "idProduct": 1,
+            "name": "Product numone",
+            "price": 50,
+            "img": "https://example.com/zapatillas.jpg",
+            "intNum": 10
+        },
+        {
+            "idProduct": 2,
+            "name": "Zapatillas deportivas",
+            "price": 60,
+            "img": "https://example.com/zapatillas.jpg",
+            "intNum": 50
+        }
+    ]
+}

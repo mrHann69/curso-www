@@ -1,70 +1,22 @@
-html,
 body {
   margin: 0;
   padding: 0;
   width: 100vw;
   height: 100vh;
+  padding-top: 15vh;
   background-image: var(--background);
   --background: repeating-linear-gradient(45deg, blue, red);
-  --buttons: linear-gradient(to right, rgba(50, 90, 25, 0.8), white);
 }
 
-#login {
+.form-signin {
+  max-width: 450px;
+  padding: 15px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  height: 100vh;
+  gap: 10px;
 }
 
-#login > h1 {
-  color: white;
-  font-size: 4.2rem;
-}
-
-#login-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2vw;
-}
-
-.btn-login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 280px;
-  height: 200px;
-  border: none;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 45px;
-  color: white;
-}
-.btn-login:hover {
-  z-index: 5;
-  position: relative;
-  width: 300px;
-  transform: scale(1.1);
-  background-color: rgba(50, 90, 25, 0.8);
-}
-#customer {
-  background-color: blue;
-}
-#customer:hover {
-  box-shadow: -10px 5px 10px;
-}
-#admin {
-  background-color: red;
-}
-#admin:hover {
-  box-shadow: 10px 5px 10px;
-}
-@media screen and (max-width: 600px) {
-  #login-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+.customer{
+  height: 300px;
+  font-size: 50px;
 }

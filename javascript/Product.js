@@ -8,44 +8,44 @@ class Product {
     }
     
     // Getters
-    get idProduct() {
+    getIdProduct() {
         return this._idProduct;
     }
     
-    get name() {
+    getName() {
         return this._name;
     }
     
-    get price() {
+    getPrice() {
         return this._price;
     }
     
-    get img() {
+    getImg() {
         return this._img;
     }
     
-    get intNum() {
+    getIntNum() {
         return this._intNum;
     }
     
     // Setters
-    set idProduct(newIdProduct) {
+    setIdProduct(newIdProduct) {
         this._idProduct = newIdProduct;
     }
     
-    set name(newName) {
+    setName(newName) {
         this._name = newName;
     }
     
-    set price(newPrice) {
+    setPrice(newPrice) {
         this._price = newPrice;
     }
     
-    set img(newImg) {
+    setImg(newImg) {
         this._img = newImg;
     }
     
-    set intNum(newIntNum) {
+    setIntNum(newIntNum) {
         this._intNum = newIntNum;
     }
 }

@@ -1,0 +1,45 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+#container {
+  height: 100vh;
+  display: flex;
+  gap: 1%;
+  background-image: linear-gradient(to top right, blue, red);
+
+}
+
+#panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 500px;
+  width: 40vw;
+}
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+#content {  
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  overflow-y: scroll;
+}
+
+.panelcontent{
+    padding: 20px;
+    border: 1px solid #212529;
+    border-radius: 10px;
+}
