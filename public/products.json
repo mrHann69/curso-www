@@ -4,7 +4,7 @@
             "idProduct": 1,
             "name": "Product numone",
             "price": 50,
-            "img": "https://example.com/zapatillas.jpg",
+            "img": "https://example.com/product.jpg",
             "intNum": 10
         },
         {
@@ -13,6 +13,34 @@
             "price": 60,
             "img": "https://example.com/zapatillas.jpg",
             "intNum": 50
+        },
+        {
+            "idProduct": 3,
+            "name": "camisa deportiva",
+            "price": 80,
+            "img": "https://example.com/camisas.jpg",
+            "intNum": 100
+        },
+            {
+            "idProduct": 1,
+            "name": "Product numone",
+            "price": 50,
+            "img": "https://example.com/product.jpg",
+            "intNum": 10
+        },
+        {
+            "idProduct": 2,
+            "name": "Zapatillas deportivas",
+            "price": 60,
+            "img": "https://example.com/zapatillas.jpg",
+            "intNum": 50
+        },
+        {
+            "idProduct": 3,
+            "name": "camisa deportiva",
+            "price": 80,
+            "img": "https://example.com/camisas.jpg",
+            "intNum": 100
         }
     ]
 }

@@ -36,7 +36,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <a href="customer.html" class="nav-link text-white">
                             <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                                 <use xlink:href="#table"></use>
                             </svg>
@@ -56,12 +56,13 @@
                 <h3>Create Product</h3>
                 <form id="form">
 
-                    <input name="inid" class="form-control" id="inid" type="text" placeholder="product id">
-                    <input name="pname" class="form-control" id="inid" type="text" placeholder="product name">
-                    <input name="pprice" class="form-control" id="pprice" type="text" placeholder="product price">
-                    <input name="strimg" class="form-control" id="strimg" type="text" placeholder="product img">
-                    <input name="numinvt" class="form-control" id="numinvt" type="text" placeholder="product num inventory">
-                    <button type="submit" class="btn btn-outline-dark" id="product_button">Create Product</button>
+                    <input class="form-control" id="idproduct" type="text" placeholder="product id">
+                    <input class="form-control" id="nameproduct" type="text" placeholder="product name">
+                    <input class="form-control" id="priceproduct" type="text" placeholder="product price">
+                    <input class="form-control" id="imgproduct" type="text" placeholder="product img">
+                    <input class="form-control" id="invtproduct" type="text" placeholder="product num inventory">
+                    <button type="submit" class="btn btn-outline-dark" id="create_button">Create Product</button>
+
                 </form>
             </div>
         </div>
@@ -69,17 +70,17 @@
         <div id="content" class="d-flex flex-column  ">
 
             <div class="mb-3 panelcontent">
-                <label for="formFile" class="form-label">Load JSON database</label>
-                <input class="form-control" type="file" name="files" id="formFile" accept=".json, .txt"
-                    onchange="readFile(this)">
-                <button id="showProducts" class="btn btn-outline-dark">Show Products</button>
+                <h4 for="formFile" class="form-label">search product</h4>
+                <form class="d-flex" role="search">
+                    <input id="searchproductbox" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button id="search_button" class="btn btn-outline-dark" type="submit">Search</button>
+                </form>
             </div>
-            <div id="product_list"class="panelcontent">
 
-
-                
+            <div id="product_list" class="panelcontent">
 
             </div>
+
         </div>
 
 
@@ -90,7 +91,8 @@
             <ul class="nav justify-content-center border-bottom pb-3 mb-3 ">
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Products</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Curstomer</a></li>
+                <li class="nav-item"><a href="customer.html" class="nav-link px-2 text-body-secondary">Curstomer</a>
+                </li>
             </ul>
             <p class="text-center text-body-secondary"> © 2023 mrHann69 </p>
         </footer>

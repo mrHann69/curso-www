@@ -6,7 +6,6 @@ class Product {
         this._img = img;
         this._intNum = intNum;
     }
-    
     // Getters
     getIdProduct() {
         return this._idProduct;
@@ -47,5 +46,9 @@ class Product {
     
     setIntNum(newIntNum) {
         this._intNum = newIntNum;
+    }
+
+    applyData(json) {
+        Object.assign(this, json);
     }
 }
