@@ -10,6 +10,12 @@ body{
     background-color: peru;
 }
 
+.all_elements{
+    display: flex;
+}
+
+/*       HEADER       */
+
 .header{
     background-image: linear-gradient(to top right, red, green);
     justify-content: space-between;
@@ -57,6 +63,7 @@ body{
 
 .nav-link c:hover{
     color: lightskyblue;
+    cursor: pointer;
 }
 
 .nav-link b img{
@@ -68,7 +75,7 @@ body{
     transition: all 0.3s;
 }
 
-.nav-link_active button{
+#btn-home button{
     color: black;
     padding: 9px 25px;
     background: lightskyblue;
@@ -77,10 +84,141 @@ body{
     transition: all 0.3s ease 0s;
 }
 
-.nav-link_active button:hover{
+#btn-home button:hover{
     font-weight: 300;
     background-color: black;
     color: lightskyblue;
     cursor: pointer;
     transform: scale(1.1);
+}
+
+/*       SIDEBAR       */
+
+#sidebar {
+    width: 200px;
+    height: 100%;
+    flex: 2;
+    position:absolute;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    background-image: 
+    linear-gradient(to top right,
+     rgb(0, 204, 255), 
+     rgb(216, 231, 0));
+    left: -200px;
+    transition: all 500ms linear;
+    overflow: auto;
+    padding-right: 10px;
+
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: white;
+    border-radius: 10px;
+}
+
+#sidebar.active {
+    width: 250px;
+    left: 0px;
+}
+
+#sidebar .column {
+    width: 100%;
+    position: relative;
+    display: auto;
+    overflow: hidden;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+#sidebar .card_box{
+    justify-content: center;
+    padding: 10px;
+    display: flex;
+}
+  
+#sidebar .item {
+    color: rgba(230, 230, 230, .9);
+    padding: 15px 15px;
+    border-bottom: 1px solid rgba(100, 100, 100, .3);
+    text-align: center;
+    max-width: 100px;
+    height: 100;
+    text-align: center;
+    margin: 0 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#sidebar .item img{
+    width: 80%;
+    height: 80%;
+}
+
+/*       PRODUCTS       */
+
+.content{    
+    flex: 5;
+    height: 100%;
+    max-width: 1000px;
+    width: 900px;
+    padding-left: 100px;
+    margin: 30px 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.looker{
+    width: 100%;
+    transition: .5s ease;
+}
+
+.looker .row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.looker .row .item{
+    max-width: 200px;
+    height: 200;
+    padding: 30px;
+    text-align: center;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.item:hover{
+    background-color: gray;
+}
+
+.card{
+    background-image: 
+    linear-gradient(to top right,
+     rgb(2, 119, 165), 
+     rgb(123, 0, 160));
+}
+
+.looker .row .item img{
+    width: 80%;
+    height: 80%;
+}
+
+.looker .row .item .info{
+    font-family:'Times New Roman', Times, serif;
+    color: white;
+    font-weight: bold;
+}
+
+.looker .row .item .prize{
+    color: cadetblue;
 }

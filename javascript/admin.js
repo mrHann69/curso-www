@@ -129,7 +129,7 @@ function makeCard(item) {
             <p>id: ${item.getIdProduct()}</p>
             <p>price: ${item.getPrice()}</p>
             <p>img: ${item.getImg()}</p>
-            <p>inventary: ${item.getIntNum()}</p>
+            <p>inventary: ${item.getQuantity()}</p>
         </div>
 
         <div class="centered">

@@ -1,10 +1,10 @@
 class Product {
-    constructor(idProduct, name, price, img, intNum){
+    constructor(idProduct, name, price, img, quantity){
         this._idProduct = idProduct;
         this._name = name;
         this._price = price;
         this._img = img;
-        this._intNum = intNum;
+        this._quantity = quantity;
     }
     // Getters
     getIdProduct() {
@@ -23,8 +23,8 @@ class Product {
         return this._img;
     }
     
-    getIntNum() {
-        return this._intNum;
+    getQuantity() {
+        return this._quantity;
     }
     
     // Setters
@@ -44,8 +44,8 @@ class Product {
         this._img = newImg;
     }
     
-    setIntNum(newIntNum) {
-        this._intNum = newIntNum;
+    setQuantity(newQuantity) {
+        this._quantity = newQuantity;
     }
 
     applyData(json) {
