@@ -63,6 +63,7 @@ body{
 
 .nav-link c:hover{
     color: lightskyblue;
+    cursor: pointer;
 }
 
 .nav-link b img{
@@ -74,7 +75,7 @@ body{
     transition: all 0.3s;
 }
 
-.nav-link_active button{
+#btn-home button{
     color: black;
     padding: 9px 25px;
     background: lightskyblue;
@@ -83,7 +84,7 @@ body{
     transition: all 0.3s ease 0s;
 }
 
-.nav-link_active button:hover{
+#btn-home button:hover{
     font-weight: 300;
     background-color: black;
     color: lightskyblue;

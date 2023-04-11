@@ -11,15 +11,16 @@
             <!--       HEADER       -->
     <header class="header">
         <div class="log">
-            <img src="../public/img/Log.png" alt=""> 
+            <img id= btn2-admin src="../public/img/Log.png" alt=""> 
         </div>
         <nav>
             <ul class="nav-link">
-                <li><c href="#">List</c></li>
-                <li><b class="buy" href="#"><img src="../public/img/Supa_car.png" alt=""></b></li>
+                <li><c class="list" href="#">List</c></li>
+                <li><b id="shopping_cart" href="#"><img src="../public/img/Supa_car.png" alt=""></b></li>
             </ul>
         </nav>
-        <a href="../index.html" class="nav-link_active"><button>Home</button></a>
+        <a href="#" id="btn-home"><button>Home</button></a>
+        <script src="../javascript/customer.js"></script>
     </header>
 
     <div class="all_elements">
@@ -27,6 +28,7 @@
         <div id="sidebar">
             <div class="column">
                 <div class="card_box">
+                    
                     <div class="item">
                         <div class="card">
                             <img src="../public/img/Log.png" alt="">
@@ -97,40 +99,7 @@
                 <!--       PRODUCTS       -->
             <div class="looker" id="looker">
                 <div class="row">
-    
-                    <div class="item">
-                        <div class="card">
-                            <img src="../public/img/Log.png" alt="">
-                            <p class="info">product 1</p>
-                            <span class="prize">2.000</span>
-                        </div>
-                    </div>
-    
-                    <div class="item">
-                        <div class="card">
-                            <img src="../public/img/Log.png" alt="">
-                            <p class="info">product 1</p>
-                            <span class="prize">2.000</span>
-                        </div>
-                    </div>
-    
-                    <div class="item">
-                        <div class="card">
-                            <img src="../public/img/Log.png" alt="">
-                            <p class="info">product 1</p>
-                            <span class="prize">2.000</span>
-                        </div>
-                    </div>
-    
-                    <div class="item">
-                        <div class="card">
-                            <img src="../public/img/Log.png" alt="">
-                            <p class="info">product 1</p>
-                            <span class="prize">2.000</span>
-                        </div>
-                    </div>
-    
-                    
+                    <script src="../javascript/deployProducts.js"></script> 
                 </div>
     
                 <div class="row">
@@ -175,6 +144,6 @@
             
         </div>
                 
-    <script src="../javascript/buy.js"></script>            
+    <script src="../javascript/list.js"></script>            
 </body>
 </html>
