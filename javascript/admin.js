@@ -1,4 +1,5 @@
 
+
 document.addEventListener("DOMContentLoaded", () => {
     try {
 
@@ -25,15 +26,18 @@ document.addEventListener("DOMContentLoaded", () => {
             refreshList();
         });
 
+        readProducts();
+
     } catch (err) {
         console.log(err);
     }
 });
 
+import data from '../public/data.js'
 
+let database = [];
 //const data = readProducts() || [];
 
-const database = [];
 
 function readProducts() {
     // return fetch('../public/products.json', {
@@ -51,6 +55,10 @@ function readProducts() {
     //         // Handle any errors that occur while fetching the JSON file
     //         console.error('Error fetching JSON file:', error);
     //     });
+    if(data) database = data;
+    database.map(e => console.log(e))
+    makeList(database);
+
 }
 
 function writeProducts(data) {
@@ -122,14 +130,14 @@ function makeCard(item) {
     if (item === undefined || item === null) return `<h1>No item</h1>`;
 
     const template =
-        `<div class="card" >
+    `<div class="card" >
 
         <div class="">
-            <h2> ${item.getName()} </h2>
-            <p>id: ${item.getIdProduct()}</p>
-            <p>price: ${item.getPrice()}</p>
-            <p>img: ${item.getImg()}</p>
-            <p>inventary: ${item.getIntNum()}</p>
+            <h2> ${ item.name} </h2>
+            <p>id: ${ item.idProduct}</p>
+            <p>price: ${ item.price}</p>
+            <p>img: ${ item.img}</p>
+            <p>inventary: ${ item.quantity}</p>
         </div>
 
         <div class="centered">
@@ -144,6 +152,28 @@ function makeCard(item) {
         </div>
         
     </div>`
+    //     `<div class="card" >
+
+    //     <div class="">
+    //         <h2> ${item.getName() || item.name} </h2>
+    //         <p>id: ${item.getIdProduct() || item.idProduct}</p>
+    //         <p>price: ${item.getPrice() || item.price}</p>
+    //         <p>img: ${item.getImg() || item.img}</p>
+    //         <p>inventary: ${item.getIntNum() || item.quantity}</p>
+    //     </div>
+
+    //     <div class="centered">
+    //         <button  class="btn btn-outline-dark btn-edit">
+    //             <i class="bi bi-pencil-square"></i>
+    //             Edit
+    //         </button>
+    //         <button  class="btn btn-outline-danger btn-delete">
+    //             <i class="bi bi-backspace-fill"></i>
+    //             Delete
+    //         </button>
+    //     </div>
+        
+    // </div>`
     return template;
 }
 
@@ -165,14 +195,14 @@ async function makeList(list) {
     for (const button of editButtons) {
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            editProduct();
+            editProduct(e);
         })
     }
 
     for (const button of deleteButtons) {
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            deleteProduct();
+            deleteProduct(e);
         })
     }
 
@@ -182,12 +212,12 @@ async function makeList(list) {
 
 
 
-function editProduct() {
+function editProduct(e) {
     console.log("funcion editProduct: ");
 }
 
 
-function deleteProduct() {
+function deleteProduct(e) {
     console.log("funcion deleteProduct: ");
 }
 
