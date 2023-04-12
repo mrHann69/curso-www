@@ -1,5 +1,5 @@
 {
-    "data": [
+    "products": [
         {
             "idProduct": 1,
             "name": "Product numone",
@@ -41,6 +41,15 @@
             "price": 80,
             "img": "https://example.com/camisas.jpg",
             "intNum": 100
+        }
+    ],
+
+    "ventas": [
+        {
+            "idProduct": 3,
+            "intNum": 2,
+            "price": 80,
+            "date": "2022-04-08"
         }
     ]
 }
