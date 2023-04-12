@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const createButton = document.getElementById('create_button');
         const searchButton = document.getElementById('search_button');
         const refreshButton = document.getElementById('refresh_button');
+        const saveButton = document.getElementById('save_button');
 
         createButton.addEventListener('click', (e) => {
             e.preventDefault();
@@ -24,6 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
         refreshButton.addEventListener('click', (e) => {
             e.preventDefault();
             refreshList();
+        });
+        saveButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            var id = saveButton.value;
+            saveProduct(id);
         });
         loadProducts();
         // readProducts();
@@ -40,10 +46,7 @@ function loadProducts(){
     fetch('../public/products.json')
     .then(response => response.json())
     .then(data => {
-        // El objeto 'data' contiene el contenido del archivo JSON
-
         database = data.products;
-        
         localStorage.setItem("data", JSON.stringify(database));
         makeList(database);
     });
@@ -76,14 +79,6 @@ function searchProduct() {
     // console.log("productToLook:", productToLook);
     // //hay que devolver un producto del arreglo!! 
     // return (productToLook !== "") ? productToLook : "no product";
-}
-
-function saveProduct(product) {
-    // if (product !== null || product !== undefined) {
-    //     database.push(product);
-    //     return true;
-    // }
-    // return false;
 }
 
 function refreshList() {
@@ -134,7 +129,7 @@ function makeCard(item) {
             <p>id: ${ item.idProduct}</p>
             <p>price: ${ item.price}</p>
             <p>img: ${ item.img}</p>
-            <p>inventary: ${ item.quantity}</p>
+            <p>inventary: ${ item.intNum}</p>
         </div>
 
         <div class="centered">
@@ -215,32 +210,38 @@ function editProduct(id) {
     database = localStorage.getItem("data");
     database = JSON.parse(database);
     let product = database.find(product => product.idProduct == id);
-    const idproduct = document.getElementById("idproduct");
-    const nameproduct = document.getElementById("nameproduct");
-    const priceproduct = document.getElementById("priceproduct");
-    const imgproduct = document.getElementById("imgproduct");
-    const invtproduct = document.getElementById("invtproduct");
+    const idproduct = document.getElementById("idproduct2");
+    const nameproduct = document.getElementById("nameproduct2");
+    const priceproduct = document.getElementById("priceproduct2");
+    const imgproduct = document.getElementById("imgproduct2");
+    const invtproduct = document.getElementById("invtproduct2");
+    const saveButton = document.getElementById('save_button');
     idproduct.value = product.idProduct;
     nameproduct.value = product.name;
     priceproduct.value = product.price;
     imgproduct.value = product.img;
     invtproduct.value = product.intNum;
+    saveButton.value = product.idProduct;
+}
 
-    
-    const form = document.getElementById('form');
-    const product_id       = (form[0].value !== "") ? form[0].value.trim() : "null";
-    const product_name     = form[1].value !== "" ? form[1].value.trim() : "null";
-    const product_price    = form[2].value !== "" ? form[2].value.trim() : "null";
-    const product_img      = form[3].value !== "" ? form[3].value.trim() : "null";
-    const product_num_invt = form[4].value !== "" ? form[4].value.trim() : "null";
+function saveProduct(id){
+    database = localStorage.getItem("data");
+    database = JSON.parse(database);
+    let product = database.find(product => product.idProduct == id);
+    const product_id       = document.getElementById("idproduct2");
+    const product_name     = document.getElementById("nameproduct2");
+    const product_price    = document.getElementById("priceproduct2");
+    const product_img      = document.getElementById("imgproduct2");
+    const product_num_invt = document.getElementById("invtproduct2");
 
-    product.idProduct = product_id;
-    product.name = product_name;
-    product.price = product_price;
-    product.img = product_img;
-    product.intNum = product_num_invt;
+    product.idProduct = product_id.value;
+    product.name = product_name.value;
+    product.price = product_price.value;
+    product.img = product_img.value;
+    product.intNum = product_num_invt.value;
 
     localStorage.setItem("data", JSON.stringify(database));
+    const form = document.getElementById('form');
     cleanForm(form);
     refreshList(database);
 }
