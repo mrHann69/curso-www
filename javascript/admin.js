@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const createButton = document.getElementById('create_button');
         const searchButton = document.getElementById('search_button');
         const refreshButton = document.getElementById('refresh_button');
+        const saveButton = document.getElementById('save_button');
 
         createButton.addEventListener('click', (e) => {
             e.preventDefault();
@@ -25,40 +26,36 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             refreshList();
         });
-
-        readProducts();
+        saveButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            var id = saveButton.value;
+            saveProduct(id);
+        });
+        loadProducts();
+        // readProducts();
 
     } catch (err) {
         console.log(err);
     }
 });
 
-import data from '../public/data.js'
-
-let database = [];
+var database = [];
 //const data = readProducts() || [];
 
+function loadProducts(){
+    fetch('../public/products.json')
+    .then(response => response.json())
+    .then(data => {
+        database = data.products;
+        localStorage.setItem("data", JSON.stringify(database));
+        makeList(database);
+    });
+}
 
 function readProducts() {
-    // return fetch('../public/products.json', {
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         'Accept': 'application/json'
-    //     }
-    // })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         console.log(data.data);
-    //         return data.data;
-    //     })
-    //     .catch(error => {
-    //         // Handle any errors that occur while fetching the JSON file
-    //         console.error('Error fetching JSON file:', error);
-    //     });
-    if(data) database = data;
-    database.map(e => console.log(e))
+    database = localStorage.getItem("data");
+    database = JSON.parse(database);
     makeList(database);
-
 }
 
 function writeProducts(data) {
@@ -78,18 +75,10 @@ function writeProducts(data) {
 }
 
 function searchProduct() {
-    const productToLook = document.getElementById('searchproductbox').value.trim();
-    console.log("productToLook:", productToLook);
-    //hay que devolver un producto del arreglo!! 
-    return (productToLook !== "") ? productToLook : "no product";
-}
-
-function saveProduct(product) {
-    if (product !== null || product !== undefined) {
-        database.push(product);
-        return true;
-    }
-    return false;
+    // const productToLook = document.getElementById('searchproductbox').value.trim();
+    // console.log("productToLook:", productToLook);
+    // //hay que devolver un producto del arreglo!! 
+    // return (productToLook !== "") ? productToLook : "no product";
 }
 
 function refreshList() {
@@ -98,19 +87,22 @@ function refreshList() {
 
 
 function createProduct() {
-    const form = document.getElementById('form');
-    const product_id = (form[0].value !== "") ? form[0].value.trim() : "null";
-    const product_name = form[1].value !== "" ? form[1].value.trim() : "null";
-    const product_price = form[2].value !== "" ? form[2].value.trim() : "null";
-    const product_img = form[3].value !== "" ? form[3].value.trim() : "null";
+    const form             = document.getElementById('form');
+    const product_id       = (form[0].value !== "") ? form[0].value.trim() : "null";
+    const product_name     = form[1].value !== "" ? form[1].value.trim() : "null";
+    const product_price    = form[2].value !== "" ? form[2].value.trim() : "null";
+    const product_img      = form[3].value !== "" ? form[3].value.trim() : "null";
     const product_num_invt = form[4].value !== "" ? form[4].value.trim() : "null";
 
-    const newProduct = new Product(product_id,
-        product_name,
-        product_price,
-        product_img,
-        product_num_invt);
-    saveProduct(newProduct);
+    const newProduct = {
+        "idProduct": product_id,
+        "name":      product_name,
+        "price":     product_price,
+        "img":       product_img,
+        "intNum":    product_num_invt
+    }
+    database.push(newProduct);
+    localStorage.setItem("data", JSON.stringify(database));
     cleanForm(form);
     refreshList(database);
 }
@@ -137,15 +129,15 @@ function makeCard(item) {
             <p>id: ${ item.idProduct}</p>
             <p>price: ${ item.price}</p>
             <p>img: ${ item.img}</p>
-            <p>inventary: ${ item.quantity}</p>
+            <p>inventary: ${ item.intNum}</p>
         </div>
 
         <div class="centered">
-            <button  class="btn btn-outline-dark btn-edit">
+            <button  class="btn btn-outline-dark btn-edit" value=${ item.idProduct} >
                 <i class="bi bi-pencil-square"></i>
                 Edit
             </button>
-            <button  class="btn btn-outline-danger btn-delete">
+            <button  class="btn btn-outline-danger btn-delete" value=${ item.idProduct}>
                 <i class="bi bi-backspace-fill"></i>
                 Delete
             </button>
@@ -195,14 +187,16 @@ async function makeList(list) {
     for (const button of editButtons) {
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            editProduct(e);
+            var id = button.value;
+            editProduct(id);
         })
     }
 
     for (const button of deleteButtons) {
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            deleteProduct(e);
+            var id = button.value;
+            deleteProduct(id);
         })
     }
 
@@ -212,12 +206,51 @@ async function makeList(list) {
 
 
 
-function editProduct(e) {
-    console.log("funcion editProduct: ");
+function editProduct(id) {
+    database = localStorage.getItem("data");
+    database = JSON.parse(database);
+    let product = database.find(product => product.idProduct == id);
+    const idproduct = document.getElementById("idproduct2");
+    const nameproduct = document.getElementById("nameproduct2");
+    const priceproduct = document.getElementById("priceproduct2");
+    const imgproduct = document.getElementById("imgproduct2");
+    const invtproduct = document.getElementById("invtproduct2");
+    const saveButton = document.getElementById('save_button');
+    idproduct.value = product.idProduct;
+    nameproduct.value = product.name;
+    priceproduct.value = product.price;
+    imgproduct.value = product.img;
+    invtproduct.value = product.intNum;
+    saveButton.value = product.idProduct;
+}
+
+function saveProduct(id){
+    database = localStorage.getItem("data");
+    database = JSON.parse(database);
+    let product = database.find(product => product.idProduct == id);
+    const product_id       = document.getElementById("idproduct2");
+    const product_name     = document.getElementById("nameproduct2");
+    const product_price    = document.getElementById("priceproduct2");
+    const product_img      = document.getElementById("imgproduct2");
+    const product_num_invt = document.getElementById("invtproduct2");
+
+    product.idProduct = product_id.value;
+    product.name = product_name.value;
+    product.price = product_price.value;
+    product.img = product_img.value;
+    product.intNum = product_num_invt.value;
+
+    localStorage.setItem("data", JSON.stringify(database));
+    const form = document.getElementById('form');
+    cleanForm(form);
+    refreshList(database);
 }
 
 
-function deleteProduct(e) {
-    console.log("funcion deleteProduct: ");
+function deleteProduct(id) {
+    database = localStorage.getItem("data");
+    database = JSON.parse(database);
+    database = database.filter(product => product.idProduct != id);
+    localStorage.setItem("data", JSON.stringify(database));
 }
 
